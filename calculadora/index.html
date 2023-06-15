@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="css.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const n = Number(prompt("Me diga o primeiro numeros: "));
+const s = prompt("Me diga o sinal (ex:+ - / * ou x)").toLowerCase();
+const n2 = Number(prompt("Me diga o segundo numero"));
+let n3 = Number(0)
+if (isNaN(s) && isNaN(n) == false && isNaN(n2) == false) {
+    if (s == "+"){
+        n3 = n + n2
+        alert(`${n3}`)
+    }
+    else if (s == "-"){
+        n3 = n - n2
+        alert(`${n3}`)
+    }
+    else if (s == "/"){
+        n3 = n / n2
+        alert(`${n3}`)
+    }
+    else if (s == "." || s == "x"){
+        n3 = n * n2
+        alert(`${n3}`)
+    }
+    }
+else {
+  alert(`Digite APENAS os sinais `);
+}
+    </script>
+</head>
+<body>
+    <h1><label for="n3">numero</label></h1>
+</body>
+</html>
