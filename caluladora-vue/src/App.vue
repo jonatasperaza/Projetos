@@ -38,6 +38,7 @@ let t = 0
           <button @click="menos">-</button>
           <button @click="vezes">*</button>
           <button @click="dividi">/</button>
+          
         </ol>
       </div>
     </div>
