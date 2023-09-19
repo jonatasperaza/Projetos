@@ -49,7 +49,7 @@ def generate_image(query, image_database, model):
 
 # Função principal para interagir com o usuário
 def main():
-    database_directory = "database"  # Diretório onde a base de dados está localizada
+    database_directory = "IA imagem/IA Web/database/"  # Diretório onde a base de dados está localizada
     image_database = load_database(database_directory)
     model = train_image_generation_model(database_directory)
 

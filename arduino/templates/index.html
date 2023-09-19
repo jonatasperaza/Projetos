@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de LED e Medição de Distância</title>
+</head>
+<body>
+    <h1>Controle de LED</h1>
+    <h2>Status do LED: <span id="ledon">Aguardando ação...</span></h2>
+    <button onclick="ligarLED()">Ligar LED</button>
+    <button onclick="desligarLED()">Desligar LED</button>
+
+    <h1>Medição de Distância</h1>
+    <p>Distância do sensor ultrassônico: <span id="distancia">Aguardando dados...</span></p>
+
+    <script>
+        let led = 'desligado'; // Defina o estado inicial do LED
+
+        function ligarLED() {
+            led = 'ligado';
+            document.getElementById("ledon").innerHTML = led;
+            fetch('/ligar')
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+        }
+
+        function desligarLED() {
+            led = 'desligado';
+            document.getElementById("ledon").innerHTML = led;
+            fetch('/desligar')
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.error(error));
+        }
+
+        // Função para atualizar a distância a cada segundo
+        function atualizarDistancia() {
+            fetch('/obter_distancia')
+                .then(response => response.text())
+                .then(distancia => {
+                    document.getElementById('distancia').textContent = distancia + " cm";
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Iniciar a atualização da distância
+        setInterval(atualizarDistancia, 250);
+
+        // Definir o estado inicial do LED
+        document.getElementById("ledon").innerHTML = led;
+    </script>
+</body>
+</html>
