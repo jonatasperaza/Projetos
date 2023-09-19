@@ -9,9 +9,9 @@ pip install pyserial
 
 
 ```
-## Em seeguida arruma a porta COM no app.py
+## Em seguida arrume a porta COM no app.py
 
-## Apos arrumar execute o seguinte comando
+## Apos ageitar a porta COM execute o seguinte comando
 
 ```sh
 
